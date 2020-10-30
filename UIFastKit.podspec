@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "UIFastKit"
-  spec.version      = "0.0.1"
+  spec.version      = "1.0.0"
   spec.summary      = "A short description of UIFastKit."
 
   # This description is used to generate tags and improve search results.
@@ -81,8 +81,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  # spec.source       = { :git => "https://github.com/bmcool/UIFastKit.git", :tag => "#{spec.version}" }
-  spec.source       = { :git => "https://github.com/bmcool/UIFastKit.git" }
+  spec.source       = { :git => "https://github.com/bmcool/UIFastKit.git", :tag => "#{spec.version}" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
