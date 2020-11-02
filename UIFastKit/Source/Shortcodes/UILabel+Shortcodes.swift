@@ -10,6 +10,13 @@ import UIKit
 
 public extension UILabel {
     @discardableResult
+    func fontSizeToFit(_ adjustsFontSizeToFitWidth: Bool) -> Self {
+        self.adjustsFontSizeToFitWidth = adjustsFontSizeToFitWidth
+        self.baselineAdjustment = .alignCenters
+        return self
+    }
+    
+    @discardableResult
     func fontSize(_ size: CGFloat) -> Self {
         self.font = UIFont(name: self.font?.familyName ?? "HelveticaNeue", size: size)
         return self
