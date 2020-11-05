@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7919C1232553EE13003F7465 /* UIFastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */; };
+		7919C13625545E1B003F7465 /* UIScreen+Shortcodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919C13525545E1B003F7465 /* UIScreen+Shortcodes.swift */; };
 		791E6746254BADDB00FE4D64 /* UIFastKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 791E6744254BADDB00FE4D64 /* UIFastKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		791E675E254BAE2800FE4D64 /* UITextField+Shortcodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791E674F254BAE2700FE4D64 /* UITextField+Shortcodes.swift */; };
 		791E675F254BAE2800FE4D64 /* UILabel+Shortcodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791E6750254BAE2700FE4D64 /* UILabel+Shortcodes.swift */; };
@@ -22,12 +24,15 @@
 		791E6769254BAE2800FE4D64 /* UIButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791E675B254BAE2800FE4D64 /* UIButton+Rx.swift */; };
 		791E676A254BAE2800FE4D64 /* UIControl+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791E675C254BAE2800FE4D64 /* UIControl+Rx.swift */; };
 		791E676B254BAE2800FE4D64 /* UIFastDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791E675D254BAE2800FE4D64 /* UIFastDefine.swift */; };
+		798404EA2553A152000866F8 /* UIFastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798404E92553A152000866F8 /* UIFastViewController.swift */; };
 		9D72F4C7F96C0385D7DA398A /* Pods_UIFastKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F93987EF273BE362C8115F /* Pods_UIFastKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0429F8FFF4A9C9F9C935D0F4 /* Pods-UIFastKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIFastKit.debug.xcconfig"; path = "Target Support Files/Pods-UIFastKit/Pods-UIFastKit.debug.xcconfig"; sourceTree = "<group>"; };
 		1DA669913706B47499B54CF0 /* Pods-UIFastKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIFastKit.release.xcconfig"; path = "Target Support Files/Pods-UIFastKit/Pods-UIFastKit.release.xcconfig"; sourceTree = "<group>"; };
+		7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFastTableViewCell.swift; sourceTree = "<group>"; };
+		7919C13525545E1B003F7465 /* UIScreen+Shortcodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Shortcodes.swift"; sourceTree = "<group>"; };
 		791E6741254BADDB00FE4D64 /* UIFastKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIFastKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		791E6744254BADDB00FE4D64 /* UIFastKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIFastKit.h; sourceTree = "<group>"; };
 		791E6745254BADDB00FE4D64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		791E675B254BAE2800FE4D64 /* UIButton+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Rx.swift"; sourceTree = "<group>"; };
 		791E675C254BAE2800FE4D64 /* UIControl+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+Rx.swift"; sourceTree = "<group>"; };
 		791E675D254BAE2800FE4D64 /* UIFastDefine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFastDefine.swift; sourceTree = "<group>"; };
+		798404E92553A152000866F8 /* UIFastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFastViewController.swift; sourceTree = "<group>"; };
 		E3F93987EF273BE362C8115F /* Pods_UIFastKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIFastKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -66,6 +72,15 @@
 				E3F93987EF273BE362C8115F /* Pods_UIFastKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7919C1252553EE19003F7465 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				798404E92553A152000866F8 /* UIFastViewController.swift */,
+				7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		791E6737254BADDB00FE4D64 = {
@@ -104,6 +119,7 @@
 				791E6751254BAE2700FE4D64 /* UIButton+Shortcodes.swift */,
 				791E6752254BAE2700FE4D64 /* UIView+Shortcodes.swift */,
 				791E6753254BAE2700FE4D64 /* UIImageView+Shortcodes.swift */,
+				7919C13525545E1B003F7465 /* UIScreen+Shortcodes.swift */,
 			);
 			path = Shortcodes;
 			sourceTree = "<group>";
@@ -125,10 +141,11 @@
 		791E676D254BAEBC00FE4D64 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7919C1252553EE19003F7465 /* UI */,
+				791E6754254BAE2800FE4D64 /* UIFastKit.swift */,
+				791E675D254BAE2800FE4D64 /* UIFastDefine.swift */,
 				791E6755254BAE2800FE4D64 /* Rx */,
 				791E674E254BAE2700FE4D64 /* Shortcodes */,
-				791E675D254BAE2800FE4D64 /* UIFastDefine.swift */,
-				791E6754254BAE2800FE4D64 /* UIFastKit.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -139,7 +156,6 @@
 				0429F8FFF4A9C9F9C935D0F4 /* Pods-UIFastKit.debug.xcconfig */,
 				1DA669913706B47499B54CF0 /* Pods-UIFastKit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -251,13 +267,16 @@
 				791E6763254BAE2800FE4D64 /* UIFastKit.swift in Sources */,
 				791E6761254BAE2800FE4D64 /* UIView+Shortcodes.swift in Sources */,
 				791E6767254BAE2800FE4D64 /* UIView+Rx.swift in Sources */,
+				7919C1232553EE13003F7465 /* UIFastTableViewCell.swift in Sources */,
 				791E6769254BAE2800FE4D64 /* UIButton+Rx.swift in Sources */,
+				798404EA2553A152000866F8 /* UIFastViewController.swift in Sources */,
 				791E675F254BAE2800FE4D64 /* UILabel+Shortcodes.swift in Sources */,
 				791E6764254BAE2800FE4D64 /* UIImageView+Rx.swift in Sources */,
 				791E675E254BAE2800FE4D64 /* UITextField+Shortcodes.swift in Sources */,
 				791E6760254BAE2800FE4D64 /* UIButton+Shortcodes.swift in Sources */,
 				791E676B254BAE2800FE4D64 /* UIFastDefine.swift in Sources */,
 				791E676A254BAE2800FE4D64 /* UIControl+Rx.swift in Sources */,
+				7919C13625545E1B003F7465 /* UIScreen+Shortcodes.swift in Sources */,
 				791E6765254BAE2800FE4D64 /* UILabel+Rx.swift in Sources */,
 				791E6766254BAE2800FE4D64 /* UITextField+Rx.swift in Sources */,
 				791E6762254BAE2800FE4D64 /* UIImageView+Shortcodes.swift in Sources */,

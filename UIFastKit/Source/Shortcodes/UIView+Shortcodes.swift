@@ -34,6 +34,18 @@ public enum UIViewAlign: Int {
 }
 
 public extension UIView {
+    var width: CGFloat {
+        get {
+            return bounds.width
+        }
+    }
+    
+    var height: CGFloat {
+        get {
+            return bounds.height
+        }
+    }
+    
     @discardableResult
     func isHidden(_ isHidden: Bool) -> Self {
         self.isHidden = isHidden

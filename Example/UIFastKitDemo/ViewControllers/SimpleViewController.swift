@@ -16,10 +16,7 @@ public class DebugLabel: UILabel {
     }
 }
 
-class ViewController: UIViewController {
-    let scrollView = UIScrollView()
-    var rootFlexContainer: UIView? = UIView()
-    
+class SimpleViewController: UIFastViewController {
     let view1Hidden = BehaviorRelay<Bool>(value: false)
     let price = BehaviorRelay<String?>(value: nil)
     let date = BehaviorRelay<String?>(value: nil)
@@ -36,7 +33,7 @@ class ViewController: UIViewController {
         let infoTitleLabel = UIFastDefine<UILabel> {$0.fontSize(30)}
         let valueLabel = UIFastDefine<UILabel>([subtitleLabel, infoTitleLabel])
 
-        rootFlexContainer?.backgroundColor(.lightGray).box.column
+        rootFlexContainer.backgroundColor(.lightGray).box.column
             .add(
                 UIView().backgroundColor(.red).isHidden(view1Hidden).box.height(40).rowReverse
                     .add(DebugLabel(titleLabel).text(price).backgroundColor(.blue))
@@ -57,8 +54,6 @@ class ViewController: UIViewController {
                     }).text("aaaa").backgroundColor(.orange).box.grow(1))
                     .add(UILabel().text("bbbb").backgroundColor(.darkGray).box.grow(2))
             )
-        view.addSubview(scrollView)
-        scrollView.addSubview(rootFlexContainer!)
         
         var c = 0
         Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {[weak self] (timer) in
@@ -73,21 +68,6 @@ class ViewController: UIViewController {
             self?.price.accept("\(c)")
             self?.view.setNeedsLayout()
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        scrollView.pin.top(view.pin.safeArea).left().right().bottom()
-        
-        if let rfc = rootFlexContainer {
-            rfc.pin.left().right().top()
-            
-            rfc.box.layout(mode: .adjustHeight)
-            
-            scrollView.contentSize = rfc.frame.size
-        }
-        
     }
 }
 

@@ -6,32 +6,27 @@
 //
 
 import UIKit
+import UIFastKit
 
-class RootViewController: UIViewController {
-
+class RootViewController: UIFastViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UIButton()
-            .text("push")
-            .color(.black)
-            .size(100, 30)
-            .align(.center, view.frame.midX, view.frame.midY)
-            .click {[unowned self] in
-                self.navigationController?.pushViewController(ViewController(), animated: true)
-            }
-            .addTo(view)
+        let btnDefine = UIFastDefine<UIButton> {
+            $0.color(.black).size(UIScreen.width, 30)
+        }
+        
+        rootFlexContainer.box.column
+            .add(UIButton(btnDefine).text("SimpleViewController").click {[unowned self] in
+                navigationController?.pushViewController(SimpleViewController(), animated: true)
+            })
+            .add(UIView().backgroundColor(.lightGray).box.height(1))
+            .add(UIButton(btnDefine).text("TableViewController").click {[unowned self] in
+                navigationController?.pushViewController(TableViewController(), animated: true)
+            })
+            .add(UIView().backgroundColor(.lightGray).box.height(1))
+            .add(UIButton(btnDefine).text("ArticleViewController").click {[unowned self] in
+                navigationController?.pushViewController(ArticleViewController(), animated: true)
+            })
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

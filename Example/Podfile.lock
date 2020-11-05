@@ -7,13 +7,13 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - UIFastKit (1.0.1):
+  - UIFastKit (1.0.3):
     - FlexLayout (~> 1.3.20)
+    - PinLayout (~> 1.9.2)
     - RxCocoa (~> 5.1.1)
     - RxSwift (~> 5.1.1)
 
 DEPENDENCIES:
-  - PinLayout
   - UIFastKit (from `../`)
 
 SPEC REPOS:
@@ -34,8 +34,8 @@ SPEC CHECKSUMS:
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  UIFastKit: 46f98b0a9eef0eccb013142f4ecb4ff7843b2e0e
+  UIFastKit: 9a28c8f0770cfb98620177923ee942276f4344d0
 
-PODFILE CHECKSUM: 0b920a5d0913f74e0bbf919feaa0dff3d9fb402a
+PODFILE CHECKSUM: 8b5970647a37f6fafe9c150ddafabf343dbc4421
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

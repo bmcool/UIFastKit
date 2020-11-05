@@ -8,6 +8,7 @@
 import UIKit
 
 @_exported import FlexLayout
+@_exported import PinLayout
 @_exported import RxSwift
 @_exported import RxCocoa
 @_exported import RxRelay
@@ -34,7 +35,7 @@ public class UIFastKitDSL {
     
     @discardableResult
     public func add(_ dsl: UIFastKitDSL) -> Self {
-        flex.addItem(dsl.view)
+        add(dsl.view)
         return self
     }
     

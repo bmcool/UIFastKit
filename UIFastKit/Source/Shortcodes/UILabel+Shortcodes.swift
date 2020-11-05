@@ -45,4 +45,12 @@ public extension UILabel {
         self.numberOfLines = numberOfLines
         return self
     }
+    
+    @discardableResult
+    func lineBreakMode(_ mode: NSLineBreakMode) -> Self {
+        self.lineBreakMode = mode
+        return self
+    }
+    
+    
 }

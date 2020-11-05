@@ -10,4 +10,5 @@ target 'UIFastKit' do
   pod 'FlexLayout'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'PinLayout'
 end

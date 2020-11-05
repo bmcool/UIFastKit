@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "UIFastKit"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.3"
   spec.summary      = "A short description of UIFastKit."
 
   # This description is used to generate tags and improve search results.
@@ -136,5 +136,5 @@ Pod::Spec.new do |spec|
   spec.dependency "FlexLayout", "~> 1.3.20"
   spec.dependency "RxSwift", "~> 5.1.1"
   spec.dependency "RxCocoa", "~> 5.1.1"
-
+  spec.dependency "PinLayout", "~> 1.9.2"
 end

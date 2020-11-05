@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		0659B1B798B3E9F3960675CA /* Pods_UIFastKitDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BC9DD48F5A2FB940104A3B /* Pods_UIFastKitDemo.framework */; };
+		7919C1392554607A003F7465 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919C1382554607A003F7465 /* ArticleViewController.swift */; };
 		791E6690254A57A900FE4D64 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791E668F254A57A900FE4D64 /* RootViewController.swift */; };
+		798404CA25532BB7000866F8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798404C925532BB7000866F8 /* TableViewController.swift */; };
 		79B289CA2541AB00005487EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B289C92541AB00005487EE /* AppDelegate.swift */; };
-		79B289CE2541AB00005487EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B289CD2541AB00005487EE /* ViewController.swift */; };
+		79B289CE2541AB00005487EE /* SimpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B289CD2541AB00005487EE /* SimpleViewController.swift */; };
 		79B289D12541AB00005487EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B289CF2541AB00005487EE /* Main.storyboard */; };
 		79B289D32541AB04005487EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B289D22541AB04005487EE /* Assets.xcassets */; };
 		79B289D62541AB05005487EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B289D42541AB05005487EE /* LaunchScreen.storyboard */; };
@@ -32,10 +34,12 @@
 /* Begin PBXFileReference section */
 		2B60E9BC233B8EC8D711F9FF /* Pods-UIFastKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIFastKit.release.xcconfig"; path = "Target Support Files/Pods-UIFastKit/Pods-UIFastKit.release.xcconfig"; sourceTree = "<group>"; };
 		40BC9DD48F5A2FB940104A3B /* Pods_UIFastKitDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIFastKitDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7919C1382554607A003F7465 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		791E668F254A57A900FE4D64 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		798404C925532BB7000866F8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		79B289C62541AB00005487EE /* UIFastKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIFastKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B289C92541AB00005487EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		79B289CD2541AB00005487EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79B289CD2541AB00005487EE /* SimpleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleViewController.swift; sourceTree = "<group>"; };
 		79B289D02541AB00005487EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79B289D22541AB04005487EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B289D52541AB05005487EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +62,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		798404C825532B14000866F8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				79B289CD2541AB00005487EE /* SimpleViewController.swift */,
+				798404C925532BB7000866F8 /* TableViewController.swift */,
+				7919C1382554607A003F7465 /* ArticleViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		79B289BD2541AB00005487EE = {
 			isa = PBXGroup;
 			children = (
@@ -79,9 +93,9 @@
 		79B289C82541AB00005487EE /* UIFastKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				798404C825532B14000866F8 /* ViewControllers */,
 				79B289C92541AB00005487EE /* AppDelegate.swift */,
 				791E668F254A57A900FE4D64 /* RootViewController.swift */,
-				79B289CD2541AB00005487EE /* ViewController.swift */,
 				79B289CF2541AB00005487EE /* Main.storyboard */,
 				79B289D22541AB04005487EE /* Assets.xcassets */,
 				79B289D42541AB05005487EE /* LaunchScreen.storyboard */,
@@ -225,8 +239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79B289CE2541AB00005487EE /* ViewController.swift in Sources */,
+				79B289CE2541AB00005487EE /* SimpleViewController.swift in Sources */,
 				79B289CA2541AB00005487EE /* AppDelegate.swift in Sources */,
+				7919C1392554607A003F7465 /* ArticleViewController.swift in Sources */,
+				798404CA25532BB7000866F8 /* TableViewController.swift in Sources */,
 				791E6690254A57A900FE4D64 /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
