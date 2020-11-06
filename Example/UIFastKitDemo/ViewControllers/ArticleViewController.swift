@@ -23,7 +23,7 @@ class ArticleViewModel {
     init() {
         cellModels = [
             ArticleCellModel(slogan: "[Swift]", subtitle: "UIFastKit is the best layout system!!", categories: ["API", "UITableView", "Cache", "Model", "UILabel", "UIView", "Framework", "cocoapods", "BLKHJAL KAJjsdfksd", "df jkdshajf hkjs afh", "dshf adsjfh"]),
-            ArticleCellModel(slogan: "[Objective-C]", subtitle: "Yoga Good.", categories: ["API", "UITableView", "Cache", "Model", "cocoapods", "BLKHJAL KAJjsdfksd", "df jkdshajf hkjs afh", "dshf adsjfh"]),
+            ArticleCellModel(slogan: "[Objective-C]", subtitle: "Yoga Good.", categories: ["API", "UITableView", "Cache", "Model", "cocoapods", "BLKHJAL KAJjsdfksd", "df jkdshajf hkjs afh", "dshf adsjfh", "API", "UITableView", "Cache", "Model", "UILabel", "UIView", "Framework", "cocoapods", "BLKHJAL KAJjsdfksd", "df jkdshajf hkjs afh", "dshf adsjfh"]),
             ArticleCellModel(slogan: "[RxSwift]", subtitle: "Awesome!!!!!!!!!!!!!!", categories: ["API", "UITableView", "Model", "UILabel", "UIView", "Framework", "cocoapods", "BLKHJAL KAJjsdfksd"]),
             ArticleCellModel(slogan: "[Swift]", subtitle: "UIFastKit is the best layout system!!", categories: ["API", "UITableView", "Cache", "Model", "UILabel", "UIView", "Framework", "cocoapods", "BLKHJAL KAJjsdfksd", "df jkdshajf hkjs afh", "dshf adsjfh"]),
             ArticleCellModel(slogan: "[Objective-C]", subtitle: "Yoga Good.", categories: ["API", "UILabel", "UIView", "Framework", "cocoapods", "BLKHJAL KAJjsdfksd", "df jkdshajf hkjs afh", "dshf adsjfh"]),
