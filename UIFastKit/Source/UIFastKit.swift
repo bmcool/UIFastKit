@@ -28,6 +28,12 @@ public class UIFastKitDSL {
     //
     
     @discardableResult
+    public func define(_ block: (_ box: Self) -> Void) -> Self {
+        block(self)
+        return self
+    }
+    
+    @discardableResult
     public func add() -> Self {
         let view = UIView()
         return add(view)
