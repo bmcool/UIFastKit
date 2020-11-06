@@ -8,9 +8,7 @@
 import UIKit
 import UIFastKit
 
-class TableViewCell: UIFastTableViewCell {
-    static let reuseIdentifier = "TableViewCell"
-    
+class TableViewCell: UIFastTableViewCell {    
     let margin: CGFloat = 10
     
     var nameLabel = UILabel()
@@ -75,7 +73,7 @@ class TableViewController: UIFastViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.className)
         
         rootFlexContainer.layout(.fitContainer).box.column
             .add(UILabel().backgroundColor(.brown).color(.white).text("TableViewController Example").box.basic(60))
@@ -90,7 +88,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as! TableViewCell
+        let cell = TableViewCell(style: .default, reuseIdentifier: TableViewCell.className)
 
         cell.setModel(viewModel.cellModels[indexPath.row])
 

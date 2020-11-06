@@ -121,6 +121,12 @@ public extension UIView {
         self.layer.cornerRadius = r
         return self
     }
+    
+    @discardableResult
+    func tag(_ tag: Int) -> Self {
+        self.tag = tag
+        return self
+    }
 }
 
 func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
