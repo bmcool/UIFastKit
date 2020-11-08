@@ -123,4 +123,16 @@ public extension UIButton {
         self.setTitleColor(color, for: controlState)
         return self
     }
+    
+    @discardableResult
+    func color(_ color: String, for controlState: UIControl.State = []) -> Self {
+        self.setTitleColor(UIColor.string(color), for: controlState)
+        return self
+    }
+    
+    @discardableResult
+    func color(_ color: Int, for controlState: UIControl.State = []) -> Self {
+        self.setTitleColor(UIColor.hex(color), for: controlState)
+        return self
+    }
 }

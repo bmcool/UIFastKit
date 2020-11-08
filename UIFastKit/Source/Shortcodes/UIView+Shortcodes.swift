@@ -65,6 +65,18 @@ public extension UIView {
     }
     
     @discardableResult
+    func backgroundColor(_ color: String) -> Self {
+        self.backgroundColor = UIColor.string(color)
+        return self
+    }
+    
+    @discardableResult
+    func backgroundColor(_ color: Int) -> Self {
+        self.backgroundColor = UIColor.hex(color)
+        return self
+    }
+    
+    @discardableResult
     @objc func size(_ width: CGFloat, _ height: CGFloat) -> Self {
         self.bounds = CGRectMake(0, 0, width, height)
         return self
@@ -113,6 +125,18 @@ public extension UIView {
     @discardableResult
     func borderColor(_ color: UIColor?) -> Self {
         self.layer.borderColor = color?.cgColor
+        return self
+    }
+    
+    @discardableResult
+    func borderColor(_ color: String) -> Self {
+        self.layer.borderColor = UIColor.string(color)?.cgColor
+        return self
+    }
+    
+    @discardableResult
+    func borderColor(_ color: Int) -> Self {
+        self.layer.borderColor = UIColor.hex(color)?.cgColor
         return self
     }
     

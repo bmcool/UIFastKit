@@ -35,6 +35,18 @@ public extension UILabel {
     }
     
     @discardableResult
+    func color(_ color: String) -> Self {
+        self.textColor = UIColor.string(color)
+        return self
+    }
+    
+    @discardableResult
+    func color(_ color: Int) -> Self {
+        self.textColor = UIColor.hex(color)
+        return self
+    }
+    
+    @discardableResult
     func text(_ text: String?) -> Self {
         self.text = text
         return self

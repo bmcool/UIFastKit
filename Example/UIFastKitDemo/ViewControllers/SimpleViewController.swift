@@ -35,16 +35,16 @@ class SimpleViewController: UIFastViewController {
 
         rootFlexContainer.backgroundColor(.lightGray).box.column
             .add(
-                UIView().backgroundColor(.hex("#ff000033")).isHidden(view1Hidden).box.height(40).rowReverse
-                    .add(DebugLabel(titleLabel).text(price).backgroundColor(.hex("0000ff")))
-                    .add(UILabel(subtitleLabel).text("2222").backgroundColor(.lightGray).box
+                UIView().backgroundColor("#ff0000").isHidden(view1Hidden).box.height(40).rowReverse
+                    .add(DebugLabel(titleLabel).text(price).backgroundColor("0000ff"))
+                    .add(UILabel(subtitleLabel).text("2222").backgroundColor("rgb 153 82 41 0.5").box
                             .right(50%).height(20).width(80))
             )
             .add(
                 UIView().box.height(50).row
-                    .add(UILabel().define(subtitleLabel).text(price).backgroundColor(.systemPink).box.height(20).alignSelf(.center))
-                    .add(UILabel(valueLabel).fontSizeToFit(true).text(date).backgroundColor(.rgba(100, 200, 100, 0.7)).box.minWidth(80).maxWidth(120))
-                    .add(UILabel().text("kkkkk").backgroundColor(.rgba("255 240 124")))
+                    .add(UILabel().define(subtitleLabel).text(price).backgroundColor("0,200,200,0.7").box.height(20).alignSelf(.center))
+                    .add(UILabel(valueLabel).fontSizeToFit(true).text(date).backgroundColor("100, 200, 100, 0.7").box.minWidth(80).maxWidth(120))
+                    .add(UILabel().text("kkkkk").backgroundColor("255 240 124"))
             )
             .add(
                 UIView(3).box.height(100).row
@@ -52,7 +52,7 @@ class SimpleViewController: UIFastViewController {
                         self.date.accept(Date().description)
                         self.view.setNeedsLayout()
                     }).text("aaaa").backgroundColor(.orange).box.grow(1))
-                    .add(UILabel().text("bbbb").backgroundColor(.rgba("255, 0, 0, 0.1")).box.grow(2))
+                    .add(UILabel().text("bbbb").backgroundColor("255, 0, 0, 0.1").box.grow(2))
             )
         
         var c = 0
