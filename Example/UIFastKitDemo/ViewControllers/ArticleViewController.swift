@@ -31,13 +31,13 @@ class ArticleViewModel {
     init() {
         cellModels = 50.list.map {_ in
             return ArticleCellModel(
-                slogan: Lorem.words(1..<2),
+                slogan: Lorem.words(1...2),
                 subtitle: Lorem.sentence,
                 description: Lorem.paragraph,
                 author: Lorem.fullName,
                 email: Lorem.emailAddress,
                 date: Lorem.word,
-                categories: Int.random(in: 3..<15).list.map {_ in Lorem.words(1..<2)
+                categories: Int.random(in: 3...15).list.map {_ in Lorem.words(1...2)
             })
         }
     }

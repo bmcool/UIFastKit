@@ -59,7 +59,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func backgroundColor(_ color: UIColor) -> Self {
+    func backgroundColor(_ color: UIColor?) -> Self {
         self.backgroundColor = color
         return self
     }
@@ -111,8 +111,8 @@ public extension UIView {
     }
     
     @discardableResult
-    func borderColor(_ color: UIColor) -> Self {
-        self.layer.borderColor = color.cgColor
+    func borderColor(_ color: UIColor?) -> Self {
+        self.layer.borderColor = color?.cgColor
         return self
     }
     

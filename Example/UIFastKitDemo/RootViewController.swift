@@ -16,17 +16,12 @@ class RootViewController: UIFastViewController {
             $0.color(.black).size(UIScreen.width, 30)
         }
         
-        rootFlexContainer.box.column
-            .add(UIButton(btnDefine).text("SimpleViewController").click {[unowned self] in
-                navigationController?.pushViewController(SimpleViewController(), animated: true)
-            })
-            .add(UIView().backgroundColor(.lightGray).box.height(1))
-            .add(UIButton(btnDefine).text("TableViewController").click {[unowned self] in
-                navigationController?.pushViewController(TableViewController(), animated: true)
-            })
-            .add(UIView().backgroundColor(.lightGray).box.height(1))
-            .add(UIButton(btnDefine).text("ArticleViewController").click {[unowned self] in
-                navigationController?.pushViewController(ArticleViewController(), animated: true)
-            })
+        [SimpleViewController(), TableViewController(), ArticleViewController()].forEach {[unowned self] vc in
+            rootFlexContainer.box.column
+                .add(UIButton(btnDefine).text(vc.className).click {[unowned self] in
+                    navigationController?.pushViewController(vc, animated: true)
+                })
+                .add(UIView().backgroundColor(.lightGray).box.height(1))
+        }
     }
 }
