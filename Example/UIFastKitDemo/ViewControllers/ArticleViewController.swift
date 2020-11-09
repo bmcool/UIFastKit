@@ -19,6 +19,7 @@ struct ArticleCellModel {
 
 class ArticleViewModel {
     let slogan = BehaviorRelay<String?>(value: nil)
+    let sloganColor = BehaviorRelay<UIColor?>(value: nil)
     let subtitle = BehaviorRelay<String?>(value: nil)
     let description = BehaviorRelay<String?>(value: nil)
     let author = BehaviorRelay<String?>(value: nil)
@@ -74,7 +75,7 @@ class ArticleViewController: UIFastViewController {
                 UIView().box.basic(40%)
                     .add(
                         UIView().box.row
-                            .add(UILabel(titleLabel).text(viewModel.slogan))
+                            .add(UILabel(titleLabel).text(viewModel.slogan).color(viewModel.sloganColor))
                             .add(UILabel(subtitleLabel).text(viewModel.subtitle).box.left(10).shrink(1))
                     )
                     .add(
@@ -111,6 +112,7 @@ class ArticleViewController: UIFastViewController {
     
     func selectedCell(_ model: ArticleCellModel) {
         viewModel.slogan.accept("[\(model.slogan ?? "-")]")
+        viewModel.sloganColor.accept(.red)
         viewModel.subtitle.accept(model.subtitle)
         viewModel.description.accept(model.description)
         viewModel.categories.accept(model.categories)
