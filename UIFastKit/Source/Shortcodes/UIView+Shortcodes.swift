@@ -12,13 +12,13 @@ public enum UIViewAlign: Int {
     case leftTop
     case centerTop
     case rightTop
-    case leftCenter = 4
-    case rightCenter = 5
-    case leftBottom = 6
-    case rightBottom = 7
-    case centerBottom = 8
+    case leftCenter
+    case rightCenter
+    case leftBottom
+    case rightBottom
+    case centerBottom
     
-    var viewAnchor: CGPoint {
+    public var viewAnchor: CGPoint {
         switch self {
         case .center: return CGPoint(x: 0.5, y: 0.5)
         case .leftTop: return CGPoint(x: 0, y: 0)
@@ -153,6 +153,6 @@ public extension UIView {
     }
 }
 
-func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+public func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
     return CGRect(x: x, y: y, width: width, height: height)
 }
