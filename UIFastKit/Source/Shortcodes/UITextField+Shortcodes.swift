@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UITextField {
+public extension UITextField {
     @discardableResult
     func color(_ color: UIColor?) -> Self {
         self.textColor = color
