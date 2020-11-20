@@ -9,9 +9,9 @@
 import UIKit
 import UITextView_Placeholder
 
-extension UITextView {
+public extension UITextView {
     @discardableResult
-    func textColor(_ color: UIColor) -> Self {
+    func color(_ color: UIColor) -> Self {
         self.textColor = color
         return self
     }
