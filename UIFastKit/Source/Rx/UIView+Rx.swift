@@ -12,11 +12,18 @@ import RxRelay
 
 public extension UIView {
     @discardableResult
+    func isDisplay(_ relay: BehaviorRelay<Bool>) -> Self {
+        relay
+            .bind(onNext: {[unowned self] isDisplay in
+                self.box.display(isDisplay ? .flex : .none).markDirty()
+            })
+            .ignoreWarning()
+        return self
+    }
+    
+    @discardableResult
     func isHidden(_ relay: BehaviorRelay<Bool>) -> Self {
         relay
-            .do(afterNext: {[unowned self] isHidden in
-                self.box.display(isHidden ? .none : .flex).markDirty()
-            })
             .bind(to: self.rx.isHidden)
             .ignoreWarning()
         return self

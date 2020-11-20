@@ -17,7 +17,7 @@ public class DebugLabel: UILabel {
 }
 
 class SimpleViewController: UIFastViewController {
-    let view1Hidden = BehaviorRelay<Bool>(value: false)
+    let view1Display = BehaviorRelay<Bool>(value: false)
     let price = BehaviorRelay<String?>(value: nil)
     let date = BehaviorRelay<String?>(value: nil)
 
@@ -35,7 +35,7 @@ class SimpleViewController: UIFastViewController {
 
         rootFlexContainer.backgroundColor(.lightGray).box.column
             .add(
-                UIView().backgroundColor("#ff0000").isHidden(view1Hidden).box.height(40).rowReverse
+                UIView().backgroundColor("#ff0000").isDisplay(view1Display).box.height(40).rowReverse
                     .add(DebugLabel(titleLabel).text(price).backgroundColor("0000ff"))
                     .add(UILabel(subtitleLabel).text("2222").backgroundColor("rgb 153 82 41 0.5").box
                             .right(50%).height(20).width(80))
@@ -60,10 +60,10 @@ class SimpleViewController: UIFastViewController {
             c += 1
 
             if c == 500 {
-                self?.view1Hidden.accept(true)
+                self?.view1Display.accept(true)
             }
             if c == 800 {
-                self?.view1Hidden.accept(false)
+                self?.view1Display.accept(false)
             }
             self?.price.accept("\(c)")
             self?.view.setNeedsLayout()
