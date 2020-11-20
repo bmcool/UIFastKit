@@ -83,6 +83,12 @@ public extension UIView {
     }
     
     @discardableResult
+    @objc func size(_ size: CGSize) -> Self {
+        self.bounds = CGRectMake(0, 0, size.width, size.height)
+        return self
+    }
+
+    @discardableResult
     func pos(_ x: CGFloat, _ y: CGFloat) -> Self {
         self.center = CGPoint(x: x, y: y)
         return self

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7919425D256765CA0066CC44 /* UITextView+Shortcodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919425C256765C90066CC44 /* UITextView+Shortcodes.swift */; };
 		7919C1232553EE13003F7465 /* UIFastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */; };
 		7919C13625545E1B003F7465 /* UIScreen+Shortcodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919C13525545E1B003F7465 /* UIScreen+Shortcodes.swift */; };
 		791E6746254BADDB00FE4D64 /* UIFastKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 791E6744254BADDB00FE4D64 /* UIFastKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		0429F8FFF4A9C9F9C935D0F4 /* Pods-UIFastKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIFastKit.debug.xcconfig"; path = "Target Support Files/Pods-UIFastKit/Pods-UIFastKit.debug.xcconfig"; sourceTree = "<group>"; };
 		1DA669913706B47499B54CF0 /* Pods-UIFastKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIFastKit.release.xcconfig"; path = "Target Support Files/Pods-UIFastKit/Pods-UIFastKit.release.xcconfig"; sourceTree = "<group>"; };
+		7919425C256765C90066CC44 /* UITextView+Shortcodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Shortcodes.swift"; sourceTree = "<group>"; };
 		7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFastTableViewCell.swift; sourceTree = "<group>"; };
 		7919C13525545E1B003F7465 /* UIScreen+Shortcodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Shortcodes.swift"; sourceTree = "<group>"; };
 		791E6741254BADDB00FE4D64 /* UIFastKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIFastKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 		791E674E254BAE2700FE4D64 /* Shortcodes */ = {
 			isa = PBXGroup;
 			children = (
+				7919425C256765C90066CC44 /* UITextView+Shortcodes.swift */,
 				791E6752254BAE2700FE4D64 /* UIView+Shortcodes.swift */,
 				791E6750254BAE2700FE4D64 /* UILabel+Shortcodes.swift */,
 				791E6751254BAE2700FE4D64 /* UIButton+Shortcodes.swift */,
@@ -319,6 +322,7 @@
 				791E6766254BAE2800FE4D64 /* UITextField+Rx.swift in Sources */,
 				79C571AF255783800038E3D5 /* String+Extensions.swift in Sources */,
 				79C571AC255781460038E3D5 /* UIColor+Extensions.swift in Sources */,
+				7919425D256765CA0066CC44 /* UITextView+Shortcodes.swift in Sources */,
 				791E6762254BAE2800FE4D64 /* UIImageView+Shortcodes.swift in Sources */,
 				791E6768254BAE2800FE4D64 /* Disposable+Ex.swift in Sources */,
 			);
