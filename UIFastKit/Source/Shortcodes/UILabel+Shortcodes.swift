@@ -69,7 +69,7 @@ public extension UILabel {
         if isStrikeThrough {
             if let lblText = self.text {
                 let attributeString =  NSMutableAttributedString(string: lblText)
-                attributeString.addAttribute(.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+                attributeString.addAttribute(.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
                 self.attributedText = attributeString
             }
         } else {
