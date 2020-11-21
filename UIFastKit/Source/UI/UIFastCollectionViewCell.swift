@@ -22,7 +22,7 @@ open class UIFastCollectionViewCell: UICollectionViewCell {
     }
     
     func layout() {
-        contentView.box.layout(mode: .adjustHeight)
+        contentView.box.layout(mode: .fitContainer)
     }
     
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
