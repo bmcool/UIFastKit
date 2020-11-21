@@ -64,5 +64,21 @@ public extension UILabel {
         return self
     }
     
-    
+    @discardableResult
+    func strikeThrough(_ isStrikeThrough:Bool) -> Self {
+        if isStrikeThrough {
+            if let lblText = self.text {
+                let attributeString =  NSMutableAttributedString(string: lblText)
+                attributeString.addAttribute(.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, attributeString.length))
+                self.attributedText = attributeString
+            }
+        } else {
+            if let attributedStringText = self.attributedText {
+                let txt = attributedStringText.string
+                self.attributedText = nil
+                self.text = txt
+            }
+        }
+        return self
+    }
 }

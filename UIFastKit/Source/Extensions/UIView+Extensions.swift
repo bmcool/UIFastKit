@@ -17,4 +17,10 @@ public extension UIView {
         subviews(tag).forEach {$0.removeFromSuperview()}
         return self
     }
+    
+    @discardableResult
+    func clipsToBounds(_ clipsToBounds: Bool) -> Self {
+        self.clipsToBounds = clipsToBounds
+        return self
+    }
 }
