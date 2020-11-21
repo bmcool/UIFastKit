@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7919425D256765CA0066CC44 /* UITextView+Shortcodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919425C256765C90066CC44 /* UITextView+Shortcodes.swift */; };
+		791947222568C6CD0066CC44 /* UIFastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791947212568C6CD0066CC44 /* UIFastCollectionViewCell.swift */; };
 		7919C1232553EE13003F7465 /* UIFastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */; };
 		7919C13625545E1B003F7465 /* UIScreen+Shortcodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7919C13525545E1B003F7465 /* UIScreen+Shortcodes.swift */; };
 		791E6746254BADDB00FE4D64 /* UIFastKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 791E6744254BADDB00FE4D64 /* UIFastKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +40,7 @@
 		0429F8FFF4A9C9F9C935D0F4 /* Pods-UIFastKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIFastKit.debug.xcconfig"; path = "Target Support Files/Pods-UIFastKit/Pods-UIFastKit.debug.xcconfig"; sourceTree = "<group>"; };
 		1DA669913706B47499B54CF0 /* Pods-UIFastKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIFastKit.release.xcconfig"; path = "Target Support Files/Pods-UIFastKit/Pods-UIFastKit.release.xcconfig"; sourceTree = "<group>"; };
 		7919425C256765C90066CC44 /* UITextView+Shortcodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Shortcodes.swift"; sourceTree = "<group>"; };
+		791947212568C6CD0066CC44 /* UIFastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFastCollectionViewCell.swift; sourceTree = "<group>"; };
 		7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFastTableViewCell.swift; sourceTree = "<group>"; };
 		7919C13525545E1B003F7465 /* UIScreen+Shortcodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Shortcodes.swift"; sourceTree = "<group>"; };
 		791E6741254BADDB00FE4D64 /* UIFastKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIFastKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 			children = (
 				798404E92553A152000866F8 /* UIFastViewController.swift */,
 				7919C1222553EE13003F7465 /* UIFastTableViewCell.swift */,
+				791947212568C6CD0066CC44 /* UIFastCollectionViewCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				79DF66132555280400842DE5 /* UIView+Extensions.swift in Sources */,
 				791E676A254BAE2800FE4D64 /* UIControl+Rx.swift in Sources */,
 				79DF663C25553CB600842DE5 /* LoremSwiftum.swift in Sources */,
+				791947222568C6CD0066CC44 /* UIFastCollectionViewCell.swift in Sources */,
 				7919C13625545E1B003F7465 /* UIScreen+Shortcodes.swift in Sources */,
 				791E6765254BAE2800FE4D64 /* UILabel+Rx.swift in Sources */,
 				791E6766254BAE2800FE4D64 /* UITextField+Rx.swift in Sources */,
