@@ -53,6 +53,18 @@ public extension UITextField {
     }
     
     @discardableResult
+    func fontFamilyName(_ familyName: String) -> Self {
+        self.font = UIFont(name: familyName, size: self.font?.pointSize ?? 14)
+        return self
+    }
+    
+    @discardableResult
+    func fontWeight(_ fontWeight: UIFont.Weight) -> Self {
+        self.font = UIFont.systemFont(ofSize: self.font?.pointSize ?? 14, weight: fontWeight)
+        return self
+    }
+    
+    @discardableResult
     func fontSize(_ size: CGFloat) -> Self {
         self.font = UIFont(name: self.font?.familyName ?? "HelveticaNeue", size: size)
         return self

@@ -107,6 +107,18 @@ public extension UIButton {
     }
     
     @discardableResult
+    func fontFamilyName(_ familyName: String) -> Self {
+        self.titleLabel?.font = UIFont(name: familyName, size: self.titleLabel?.font?.pointSize ?? 14)
+        return self
+    }
+    
+    @discardableResult
+    func fontWeight(_ fontWeight: UIFont.Weight) -> Self {
+        self.titleLabel?.font = UIFont.systemFont(ofSize: self.titleLabel?.font?.pointSize ?? 14, weight: fontWeight)
+        return self
+    }
+    
+    @discardableResult
     func fontSize(_ size: CGFloat) -> Self {
         self.titleLabel?.font =  UIFont(name: self.titleLabel?.font?.familyName ?? "HelveticaNeue", size: size)
         return self
