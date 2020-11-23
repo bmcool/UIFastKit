@@ -24,15 +24,4 @@ open class UIFastCollectionViewCell: UICollectionViewCell {
     func layout() {
         contentView.box.layout(mode: .fitContainer)
     }
-    
-    open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        // 1) Set the contentView's width to the specified size parameter
-        contentView.pin.width(size.width)
-        
-        // 2) Layout contentView flex container
-        layout()
-        
-        // Return the flex container new size
-        return contentView.frame.size
-    }
 }
