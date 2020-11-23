@@ -8,11 +8,20 @@
 
 import UIKit
 
-public typealias UIButtonTargetClosure = () -> Void
+public typealias ClickClosure = () -> Void
+
+public typealias ClickClosureWithSender = (_ sender: UIButton) -> Void
 
 public class ClosureWrapper: NSObject {
-    let closure: UIButtonTargetClosure
-    init(_ closure: @escaping UIButtonTargetClosure) {
+    let closure: ClickClosure
+    init(_ closure: @escaping ClickClosure) {
+        self.closure = closure
+    }
+}
+
+public class SenderClosureWrapper: NSObject {
+    let closure: ClickClosureWithSender
+    init(_ closure: @escaping ClickClosureWithSender) {
         self.closure = closure
     }
 }
@@ -20,9 +29,10 @@ public class ClosureWrapper: NSObject {
 public extension UIButton {
     private struct AssociatedKeys {
         static var targetClosure = "targetClosure"
+        static var senderClosure = "senderClosure"
     }
     
-    private var targetClosure: UIButtonTargetClosure? {
+    private var targetClosure: ClickClosure? {
         get {
             guard let closureWrapper = objc_getAssociatedObject(self, &AssociatedKeys.targetClosure) as? ClosureWrapper else { return nil }
             return closureWrapper.closure
@@ -33,16 +43,39 @@ public extension UIButton {
         }
     }
     
+    private var senderClosure: ClickClosureWithSender? {
+        get {
+            guard let closureWrapper = objc_getAssociatedObject(self, &AssociatedKeys.senderClosure) as? SenderClosureWrapper else { return nil }
+            return closureWrapper.closure
+        }
+        set(newValue) {
+            guard let newValue = newValue else { return }
+            objc_setAssociatedObject(self, &AssociatedKeys.senderClosure, SenderClosureWrapper(newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     @discardableResult
-    func click(_ closure: @escaping UIButtonTargetClosure) -> Self {
+    func click(_ closure: @escaping ClickClosure) -> Self {
         targetClosure = closure
         addTarget(self, action: #selector(UIButton.closureAction), for: .touchUpInside)
+        return self
+    }
+    
+    @discardableResult
+    func click(_ closure: @escaping ClickClosureWithSender) -> Self {
+        senderClosure = closure
+        addTarget(self, action: #selector(UIButton.senderClosureAction), for: .touchUpInside)
         return self
     }
     
     @objc func closureAction() {
         guard let targetClosure = targetClosure else { return }
         targetClosure()
+    }
+    
+    @objc func senderClosureAction(_ sender: UIButton) {
+        guard let senderClosure = senderClosure else { return }
+        senderClosure(sender)
     }
 }
 

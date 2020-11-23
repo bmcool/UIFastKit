@@ -51,6 +51,8 @@ class SimpleViewController: UIFastViewController {
                     .add(UIButton().click({[unowned self] in
                         self.date.accept(Date().description)
                         self.view.setNeedsLayout()
+                    }).click({ (sender) in
+                        print(1111, sender)
                     }).text("aaaa").backgroundColor(.orange).box.grow(1))
                     .add(UILabel().text("bbbb").backgroundColor("255, 0, 0, 0.1").box.grow(2))
             )
