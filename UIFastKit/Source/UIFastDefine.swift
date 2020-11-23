@@ -228,3 +228,25 @@ public extension UITextField {
         return self
     }
 }
+
+public extension UITextView {
+    convenience init(_ fastDefine: UIFastDefine<UITextView>) {
+        self.init()
+        fastDefine.apply(self)
+    }
+    
+    convenience init(_ fastDefines: [UIFastDefine<UITextView>]) {
+        self.init()
+        fastDefines.forEach {$0.apply(self)}
+    }
+    
+    func define(_ fastDefine: UIFastDefine<UITextView>) -> Self {
+        fastDefine.apply(self)
+        return self
+    }
+    
+    func define(_ fastDefines: [UIFastDefine<UITextView>]) -> Self {
+        fastDefines.forEach {$0.apply(self)}
+        return self
+    }
+}
