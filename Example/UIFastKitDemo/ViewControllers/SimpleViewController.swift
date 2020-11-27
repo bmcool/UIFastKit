@@ -60,13 +60,7 @@ class SimpleViewController: UIFastViewController {
         var c = 0
         Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {[weak self] (timer) in
             c += 1
-
-            if c == 500 {
-                self?.view1Display.accept(true)
-            }
-            if c == 800 {
-                self?.view1Display.accept(false)
-            }
+            self?.view1Display.accept((c % 1000) > 500)
             self?.price.accept("\(c)")
             self?.view.setNeedsLayout()
         }
