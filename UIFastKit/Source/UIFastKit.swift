@@ -28,7 +28,7 @@ public class UIFastKitDSL {
     //
     
     @discardableResult
-    public func define(_ block: (_ box: Self) -> Void) -> Self {
+    public func define(_ block: (_ box: UIFastKitDSL) -> Void) -> Self {
         block(self)
         return self
     }
@@ -88,22 +88,22 @@ public class UIFastKitDSL {
     // MARK: Direction, wrap, flow
     //
     
-    public var row: Self {
+    public var row: UIFastKitDSL {
         flex.direction(.row)
         return self
     }
     
-    public var column: Self {
+    public var column: UIFastKitDSL {
         flex.direction(.column)
         return self
     }
     
-    public var rowReverse: Self {
+    public var rowReverse: UIFastKitDSL {
         flex.direction(.rowReverse)
         return self
     }
     
-    public var columnReverse: Self {
+    public var columnReverse: UIFastKitDSL {
         flex.direction(.columnReverse)
         return self
     }
