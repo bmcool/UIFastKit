@@ -8,7 +8,6 @@
 import UIKit
 import UIFastKit
 import PinLayout
-import RxRelay
 
 public class DebugLabel: UILabel {
     deinit {
@@ -17,9 +16,9 @@ public class DebugLabel: UILabel {
 }
 
 class SimpleViewController: UIFastViewController {
-    let view1Display = BehaviorRelay<Bool>(value: false)
-    let price = BehaviorRelay<String?>(value: nil)
-    let date = BehaviorRelay<String?>(value: nil)
+    let view1Display = Variable<Bool>(false)
+    let price = Variable<String?>(nil)
+    let date = Variable<String?>(nil)
 
     deinit {
         print("-- deinit -- ViewController")
@@ -49,10 +48,9 @@ class SimpleViewController: UIFastViewController {
             .add(
                 UIView(3).box.height(100).row
                     .add(UIButton().click({[unowned self] in
-                        self.date.accept(Date().description)
+                        self.date.value = Date().description
                         self.view.setNeedsLayout()
                     }).click({ (sender) in
-                        print(1111, sender)
                     }).text("aaaa").backgroundColor(.orange).box.grow(1))
                     .add(UILabel().text("bbbb").backgroundColor("255, 0, 0, 0.1").box.grow(2))
             )
@@ -60,8 +58,8 @@ class SimpleViewController: UIFastViewController {
         var c = 0
         Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) {[weak self] (timer) in
             c += 1
-            self?.view1Display.accept((c % 1000) > 500)
-            self?.price.accept("\(c)")
+            self?.view1Display.value = (c % 1000) > 500
+            self?.price.value = "\(c)"
             self?.view.setNeedsLayout()
         }
     }

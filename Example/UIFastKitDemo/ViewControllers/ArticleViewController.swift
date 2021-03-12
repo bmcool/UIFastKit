@@ -18,14 +18,14 @@ struct ArticleCellModel {
 }
 
 class ArticleViewModel {
-    let slogan = BehaviorRelay<String?>(value: nil)
-    let sloganColor = BehaviorRelay<UIColor?>(value: nil)
-    let subtitle = BehaviorRelay<String?>(value: nil)
-    let description = BehaviorRelay<String?>(value: nil)
-    let author = BehaviorRelay<String?>(value: nil)
-    let email = BehaviorRelay<String?>(value: nil)
-    let date = BehaviorRelay<String?>(value: nil)
-    let categories = BehaviorRelay<[String]>(value: [])
+    let slogan = Variable<String?>(nil)
+    let sloganColor = Variable<UIColor?>(nil)
+    let subtitle = Variable<String?>(nil)
+    let description = Variable<String?>(nil)
+    let author = Variable<String?>(nil)
+    let email = Variable<String?>(nil)
+    let date = Variable<String?>(nil)
+    let categories = Variable<[String]>([])
 
     var cellModels = [ArticleCellModel]()
     
@@ -52,8 +52,6 @@ fileprivate let categoryLabel = UIFastDefine<UILabel>(label) {
 }
 
 class ArticleViewController: UIFastViewController {
-    let disposeBag = DisposeBag()
-    
     let tableView = UITableView()
     
     let categoriesView = UIView()
@@ -104,21 +102,20 @@ class ArticleViewController: UIFastViewController {
                     categories.forEach { box.add(UILabel(categoryLabel).tag(123).text($0)) }
                 }
         }
-        .disposed(by: disposeBag)
         
         selectedCell(viewModel.cellModels[0])
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .top)
     }
     
     func selectedCell(_ model: ArticleCellModel) {
-        viewModel.slogan.accept("[\(model.slogan ?? "-")]")
-        viewModel.sloganColor.accept(.red)
-        viewModel.subtitle.accept(model.subtitle)
-        viewModel.description.accept(model.description)
-        viewModel.categories.accept(model.categories)
-        viewModel.author.accept(model.author)
-        viewModel.email.accept(model.email)
-        viewModel.date.accept(model.date)
+        viewModel.slogan.value = "[\(model.slogan ?? "-")]"
+        viewModel.sloganColor.value = .red
+        viewModel.subtitle.value = model.subtitle
+        viewModel.description.value = model.description
+        viewModel.categories.value = model.categories
+        viewModel.author.value = model.author
+        viewModel.email.value = model.email
+        viewModel.date.value = model.date
         view.setNeedsLayout()
     }
 }

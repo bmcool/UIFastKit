@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "UIFastKit"
-  spec.version      = "1.0.25"
+  spec.version      = "1.1.0"
   spec.summary      = "A short description of UIFastKit."
 
   # This description is used to generate tags and improve search results.
@@ -134,8 +134,6 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   spec.dependency "FlexLayout", "~> 1.3.20"
-  spec.dependency "RxSwift", "~> 5.1.1"
-  spec.dependency "RxCocoa", "~> 5.1.1"
   spec.dependency "PinLayout", "~> 1.9.2"
   spec.dependency "UITextView+Placeholder", "~> 1.4.0"
 end

@@ -9,9 +9,6 @@ import UIKit
 
 @_exported import FlexLayout
 @_exported import PinLayout
-@_exported import RxSwift
-@_exported import RxCocoa
-@_exported import RxRelay
 
 public class UIFastKitDSL {
     internal let view: UIView

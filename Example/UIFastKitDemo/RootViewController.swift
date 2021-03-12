@@ -16,10 +16,10 @@ class RootViewController: UIFastViewController {
             $0.color(.black).size(UIScreen.width, 30)
         }
         
-        [SimpleViewController(), TableViewController(), ArticleViewController()].forEach {[unowned self] vc in
+        [SimpleViewController.self, TableViewController.self, ArticleViewController.self].forEach {[unowned self] vcClass in
             rootFlexContainer.box.column
-                .add(UIButton(btnDefine).text(vc.className).click {[unowned self] in
-                    navigationController?.pushViewController(vc, animated: true)
+                .add(UIButton(btnDefine).text(vcClass.className).click {[unowned self] in
+                    self.navigationController?.pushViewController(vcClass.init(), animated: true)
                 })
                 .add(UIView().backgroundColor(.lightGray).box.height(1))
         }

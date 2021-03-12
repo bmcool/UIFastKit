@@ -1,38 +1,24 @@
 PODS:
   - FlexLayout (1.3.20)
   - PinLayout (1.9.2)
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.1)
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
   - FlexLayout
   - PinLayout
-  - RxCocoa
-  - RxSwift
   - "UITextView+Placeholder"
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FlexLayout
     - PinLayout
-    - RxCocoa
-    - RxRelay
-    - RxSwift
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
   FlexLayout: 025dd153bd5618dcc9f93ef914106d7dc2a86fdc
   PinLayout: 0d96022e46e8b80468d819f182a393b97ca038da
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: a1d57f59f920557c376ff7a022d57e0e32c175c1
+PODFILE CHECKSUM: 97894f83b8f007a035ca80d073673be635df9d05
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

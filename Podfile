@@ -9,7 +9,5 @@ target 'UIFastKit' do
 
   pod 'UITextView+Placeholder'
   pod 'FlexLayout'
-  pod 'RxSwift'
-  pod 'RxCocoa'
   pod 'PinLayout'
 end
