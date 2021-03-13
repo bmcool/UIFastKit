@@ -64,10 +64,8 @@ extension RecursiveLock : Lock {
     }
 }
 
-
-
-public final class Variable<Element> {
-    private var listeners: [Listener] = []
+public class Binding<Element> {
+    public var listeners: [String: Listener] = [:]
     
     public typealias E = Element
     
@@ -81,6 +79,28 @@ public final class Variable<Element> {
         }
     }
     
+    public init() { }
+}
+
+public final class Channel<Element>: Binding<Element> {
+    public func send(_ value: E) {
+        for listener in listeners.values {
+            listener.receive?(value)
+        }
+    }
+    
+    @discardableResult
+    public func listen(_ receive: @escaping Callback) -> (() -> Void) {
+        let listener = Listener(receive)
+        let address = "\(Unmanaged.passUnretained(listener).toOpaque())"
+        listeners[address] = listener
+        return {[weak self] in
+            self?.listeners.removeValue(forKey: address)
+        }
+    }
+}
+
+public final class Variable<Element>: Binding<Element> {
     private var _lock = SpinLock()
     
     private var _value: E
@@ -103,13 +123,19 @@ public final class Variable<Element> {
         _value = value
     }
     
-    public func bind(_ receive: @escaping Callback) {
+    @discardableResult
+    public func bind(_ receive: @escaping Callback) -> (() -> Void) {
         receive(_value)
-        listeners.append(Listener(receive))
+        let listener = Listener(receive)
+        let address = "\(Unmanaged.passUnretained(listener).toOpaque())"
+        listeners[address] = listener
+        return {[weak self] in
+            self?.listeners.removeValue(forKey: address)
+        }
     }
     
     private func dispatchReceive() {
-        for listener in listeners {
+        for listener in listeners.values {
             listener.receive?(_value)
         }
     }
