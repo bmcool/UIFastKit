@@ -10,7 +10,7 @@ public protocol UIFastScrollBindingContainerDataSource: class {
 }
 
 open class UIFastScrollBindingContainer: UIView {
-    weak var dataSource: UIFastScrollBindingContainerDataSource? {
+    public weak var dataSource: UIFastScrollBindingContainerDataSource? {
         didSet {
             scrollBindingTableViews.forEach { (view) in
                 view.dataSource = dataSource
@@ -18,7 +18,7 @@ open class UIFastScrollBindingContainer: UIView {
         }
     }
 
-    var scrollBindingTableViews: [UIFastScrollBindingTableView] = [] {
+    public var scrollBindingTableViews: [UIFastScrollBindingTableView] = [] {
         didSet {
             scrollBindingTableViews.forEach {[weak self] (view) in
                 // disable auto-contentSize
@@ -51,9 +51,9 @@ open class UIFastScrollBindingTableView: UIView {
     
     var isScrolling = false
     
-    weak var container: UIFastScrollBindingContainer?
+    public weak var container: UIFastScrollBindingContainer?
     
-    weak var dataSource: UIFastScrollBindingContainerDataSource?
+    public weak var dataSource: UIFastScrollBindingContainerDataSource?
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return dataSource?.tableView(tableView, heightForRowAt: indexPath) ?? 0
