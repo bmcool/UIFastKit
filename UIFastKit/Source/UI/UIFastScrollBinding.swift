@@ -9,7 +9,7 @@ public protocol UIFastScrollBindingContainerDataSource: class {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
 }
 
-public class UIFastScrollBindingContainer: UIView {
+open class UIFastScrollBindingContainer: UIView {
     weak var dataSource: UIFastScrollBindingContainerDataSource? {
         didSet {
             scrollBindingTableViews.forEach { (view) in
@@ -46,7 +46,7 @@ public class UIFastScrollBindingContainer: UIView {
     }
 }
 
-public class UIFastScrollBindingTableView: UIView {
+open class UIFastScrollBindingTableView: UIView {
     let tableView = UITableView()
     
     var isScrolling = false
@@ -55,27 +55,27 @@ public class UIFastScrollBindingTableView: UIView {
     
     weak var dataSource: UIFastScrollBindingContainerDataSource?
     
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return dataSource?.tableView(tableView, heightForRowAt: indexPath) ?? 0
     }
 }
 
 extension UIFastScrollBindingTableView: UITableViewDelegate {
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         isScrolling = false
     }
     
-    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             isScrolling = false
         }
     }
     
-    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         isScrolling = true
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isScrolling {
             container?.tableViewDidScroll(tableView)
         }

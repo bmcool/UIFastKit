@@ -5,10 +5,10 @@
 //  Created by 林季正 on 2021/3/19.
 //
 
-public class UIFastPageScrollView: UIScrollView {
+open class UIFastPageScrollView: UIScrollView {
     fileprivate let rootFlexContainer = UIView()
     
-    public var childViews: [UIView] = [] {
+    var childViews: [UIView] = [] {
         didSet {
             self.rootFlexContainer.subviews.forEach { $0.removeFromSuperview() }
             childViews.forEach { self.rootFlexContainer.box.row.add($0.box.width(100%)) }
@@ -16,8 +16,8 @@ public class UIFastPageScrollView: UIScrollView {
         }
     }
     
-    public var pageChanged: ((Int) -> Void)?
-    public var page = 0 {
+    var pageChanged: ((Int) -> Void)?
+    var page = 0 {
         didSet {
             let contentOffsetX = self.frame.width * CGFloat(page)
             self.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: true)
@@ -38,11 +38,11 @@ public class UIFastPageScrollView: UIScrollView {
         scrollsToTop = false
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         rootFlexContainer.pin.all(pin.safeArea)
