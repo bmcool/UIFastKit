@@ -5,9 +5,7 @@
 //  Created by 林季正 on 2021/3/19.
 //
 
-import UIFastKit
-
-class UIFastPageScrollView: UIScrollView {
+public class UIFastPageScrollView: UIScrollView {
     fileprivate let rootFlexContainer = UIView()
     
     public var childViews: [UIView] = [] {
@@ -44,7 +42,7 @@ class UIFastPageScrollView: UIScrollView {
         super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         rootFlexContainer.pin.all(pin.safeArea)
@@ -55,7 +53,7 @@ class UIFastPageScrollView: UIScrollView {
 }
 
 extension UIFastPageScrollView: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage = floor(scrollView.contentOffset.x / scrollView.frame.width)
         page = Int(currentPage)
     }

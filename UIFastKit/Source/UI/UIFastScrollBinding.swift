@@ -5,13 +5,11 @@
 //  Created by 林季正 on 2021/3/16.
 //
 
-import UIFastKit
-
-protocol UIFastScrollBindingContainerDataSource: class {
+public protocol UIFastScrollBindingContainerDataSource: class {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
 }
 
-class UIFastScrollBindingContainer: UIView {
+public class UIFastScrollBindingContainer: UIView {
     weak var dataSource: UIFastScrollBindingContainerDataSource? {
         didSet {
             scrollBindingTableViews.forEach { (view) in
@@ -48,7 +46,7 @@ class UIFastScrollBindingContainer: UIView {
     }
 }
 
-class UIFastScrollBindingTableView: UIView {
+public class UIFastScrollBindingTableView: UIView {
     let tableView = UITableView()
     
     var isScrolling = false
@@ -57,27 +55,27 @@ class UIFastScrollBindingTableView: UIView {
     
     weak var dataSource: UIFastScrollBindingContainerDataSource?
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return dataSource?.tableView(tableView, heightForRowAt: indexPath) ?? 0
     }
 }
 
 extension UIFastScrollBindingTableView: UITableViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         isScrolling = false
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             isScrolling = false
         }
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         isScrolling = true
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isScrolling {
             container?.tableViewDidScroll(tableView)
         }
