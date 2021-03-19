@@ -47,7 +47,7 @@ open class UIFastScrollBindingContainer: UIView {
 }
 
 open class UIFastScrollBindingTableView: UIView {
-    let tableView = UITableView()
+    public let tableView = UITableView()
     
     var isScrolling = false
     
@@ -57,6 +57,16 @@ open class UIFastScrollBindingTableView: UIView {
     
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return dataSource?.tableView(tableView, heightForRowAt: indexPath) ?? 0
+    }
+    
+    override public init(frame: CGRect) {
+        super.init(frame: .zero)
+        
+        tableView.delegate = self
+    }
+    
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
