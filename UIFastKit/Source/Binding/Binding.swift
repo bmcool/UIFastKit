@@ -65,13 +65,13 @@ extension RecursiveLock : Lock {
 }
 
 public class Binding<Element> {
-    public var listeners: [String: Listener] = [:]
+    internal var listeners: [String: Listener] = [:]
     
     public typealias E = Element
     
     public typealias Callback = (E) -> Void
     
-    public class Listener {
+    internal class Listener {
         public var receive: Callback?
         
         public init(_ receive: Callback?) {
@@ -100,10 +100,10 @@ public final class Channel<Element>: Binding<Element> {
     }
 }
 
-public final class Variable<Element>: Binding<Element> {
-    private var _lock = SpinLock()
+public class Variable<Element>: Binding<Element> {
+    internal var _lock = SpinLock()
     
-    private var _value: E
+    internal var _value: E
     
     public var value: E {
         get {
@@ -125,7 +125,7 @@ public final class Variable<Element>: Binding<Element> {
     
     @discardableResult
     public func bind(_ receive: @escaping Callback) -> (() -> Void) {
-        receive(_value)
+        receive(value)
         let listener = Listener(receive)
         let address = "\(Unmanaged.passUnretained(listener).toOpaque())"
         listeners[address] = listener
@@ -134,9 +134,22 @@ public final class Variable<Element>: Binding<Element> {
         }
     }
     
-    private func dispatchReceive() {
+    internal func dispatchReceive() {
         for listener in listeners.values {
-            listener.receive?(_value)
+            listener.receive?(value)
+        }
+    }
+}
+
+public final class FlashVariable<Element>: Variable<Element?> {
+    override public var value: E {
+        get {
+            let v = super.value
+            _value = nil
+            return v
+        }
+        set(newValue) {
+            super.value = newValue
         }
     }
 }

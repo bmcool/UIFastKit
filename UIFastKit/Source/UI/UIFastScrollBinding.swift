@@ -13,11 +13,6 @@ open class UIFastTableViewScrollBinder {
     public var scrollBindingTableViews: [UIFastScrollBindingTableView] = [] {
         didSet {
             scrollBindingTableViews.forEach {[weak self] (view) in
-                // disable auto-contentSize
-                view.tableView.estimatedRowHeight = 0
-                view.tableView.estimatedSectionHeaderHeight = 0
-                view.tableView.estimatedSectionFooterHeight = 0
-                
                 view.binder = self
             }
         }
@@ -36,18 +31,18 @@ open class UIFastTableViewScrollBinder {
     }
 }
 
-open class UIFastScrollBindingTableViewProxy: NSObject {
-    var isScrolling = false
+private class UIFastScrollBindingTableViewDelegate: NSObject {
+    private var isScrolling = false
     
-    public weak var binder: UIFastTableViewScrollBinder?
+    weak var binder: UIFastTableViewScrollBinder?
     
-    public weak var delegate: UITableViewDelegate?
+    weak var delegate: UITableViewDelegate?
     
-    open override func responds(to aSelector: Selector) -> Bool {
+    override func responds(to aSelector: Selector) -> Bool {
         return super.responds(to: aSelector) || delegate?.responds(to: aSelector) == true
     }
 
-    open override func forwardingTarget(for aSelector: Selector!) -> Any? {
+    override func forwardingTarget(for aSelector: Selector!) -> Any? {
         if delegate?.responds(to: aSelector) == true {
             return delegate
         } else {
@@ -56,25 +51,25 @@ open class UIFastScrollBindingTableViewProxy: NSObject {
     }
 }
 
-extension UIFastScrollBindingTableViewProxy: UITableViewDelegate {
-    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+extension UIFastScrollBindingTableViewDelegate: UITableViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         isScrolling = false
         delegate?.scrollViewDidEndDecelerating?(scrollView)
     }
     
-    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             isScrolling = false
         }
         delegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
-    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         isScrolling = true
         delegate?.scrollViewWillBeginDragging?(scrollView)
     }
     
-    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isScrolling {
             binder?.scrollViewDidScroll(scrollView)
         }
@@ -85,7 +80,7 @@ extension UIFastScrollBindingTableViewProxy: UITableViewDelegate {
 open class UIFastScrollBindingTableView: UIView {
     public let tableView = UITableView()
     
-    private let defaultDelegate =  UIFastScrollBindingTableViewProxy()
+    private let defaultDelegate =  UIFastScrollBindingTableViewDelegate()
     
     public weak var binder: UIFastTableViewScrollBinder? {
         didSet {
@@ -108,6 +103,11 @@ open class UIFastScrollBindingTableView: UIView {
     
     override public init(frame: CGRect) {
         super.init(frame: .zero)
+        
+        // disable auto-contentSize
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
         
         tableView.delegate = defaultDelegate
         
