@@ -34,16 +34,21 @@ public extension UITextField {
     }
     
     @discardableResult
-    func placeholder(_ placeholder: String) -> Self {
+    func placeholder(_ placeholder: String?) -> Self {
         self.placeholder = placeholder
         return self
     }
     
     @discardableResult
-    func placeholder(_ placeholder: String, color: UIColor) -> Self {
-        self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor: color])
+    func placeholder(_ placeholder: String?, color: UIColor) -> Self {
+        self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: color])
         
         return self
+    }
+    
+    @discardableResult
+    func placeholderColor(_ color: UIColor) -> Self {
+        return self.placeholder(placeholder, color: color)
     }
     
     @discardableResult

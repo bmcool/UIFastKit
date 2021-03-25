@@ -35,13 +35,13 @@ public extension UITextView {
     }
     
     @discardableResult
-    func placeholder(_ placeholder: String) -> Self {
+    func placeholder(_ placeholder: String?) -> Self {
         self.placeholder = placeholder
         return self
     }
     
     @discardableResult
-    func placeholder(_ placeholder: String, color: UIColor) -> Self {
+    func placeholder(_ placeholder: String?, color: UIColor) -> Self {
         self.placeholder = placeholder
         self.placeholderColor = color
         return self

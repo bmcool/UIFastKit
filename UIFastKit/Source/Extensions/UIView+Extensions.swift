@@ -13,8 +13,12 @@ public extension UIView {
     }
     
     @discardableResult
-    func removeSubviews(_ tag: Int) -> Self {
-        subviews(tag).forEach {$0.removeFromSuperview()}
+    func removeSubviews(_ tag: Int? = nil) -> Self {
+        if let t = tag {
+            subviews(t).forEach {$0.removeFromSuperview()}
+        } else {
+            subviews.forEach {$0.removeFromSuperview()}
+        }
         return self
     }
     
