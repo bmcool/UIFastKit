@@ -8,6 +8,9 @@ target 'UIFastKit' do
   use_frameworks!
 
   pod 'UITextView+Placeholder'
+  
   pod 'FlexLayout'
   pod 'PinLayout'
+  
+  pod 'SDWebImage'
 end
