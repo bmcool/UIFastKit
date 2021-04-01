@@ -4,12 +4,14 @@ PODS:
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
+  - SwiftyBeaver (1.9.3)
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
   - FlexLayout
   - PinLayout
   - SDWebImage
+  - SwiftyBeaver
   - "UITextView+Placeholder"
 
 SPEC REPOS:
@@ -17,14 +19,16 @@ SPEC REPOS:
     - FlexLayout
     - PinLayout
     - SDWebImage
+    - SwiftyBeaver
     - "UITextView+Placeholder"
 
 SPEC CHECKSUMS:
   FlexLayout: 025dd153bd5618dcc9f93ef914106d7dc2a86fdc
   PinLayout: 0d96022e46e8b80468d819f182a393b97ca038da
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: f29bc313728aa45b35272e2e823e67a433a44cbd
+PODFILE CHECKSUM: 6f0e776c47337e509775032ddb2b624d99b7c0f8
 
 COCOAPODS: 1.10.1

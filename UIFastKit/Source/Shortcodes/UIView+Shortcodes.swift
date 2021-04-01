@@ -147,8 +147,16 @@ public extension UIView {
     }
     
     @discardableResult
-    func cornerRadius(_ r: CGFloat) -> Self {
+    func cornerRadius(_ r: CGFloat, corners: CACornerMask = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]) -> Self {
+        self.clipsToBounds(true)
         self.layer.cornerRadius = r
+        if #available(iOS 11.0, *) {
+            self.layer.maskedCorners = corners
+        } else {
+            #if DEBUG
+            print("\(#function) maskedCorners is available above iOS 11.0")
+            #endif
+        }
         return self
     }
     
@@ -161,4 +169,44 @@ public extension UIView {
 
 public func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
     return CGRect(x: x, y: y, width: width, height: height)
+}
+
+public typealias TapClosure = () -> Void
+
+public class TapClosureWrapper: NSObject {
+    let closure: TapClosure
+    init(_ closure: @escaping TapClosure) {
+        self.closure = closure
+    }
+}
+
+public extension UIView {
+    private struct AssociatedKeys {
+        static var targetClosure = "targetClosure"
+    }
+    
+    private var targetClosure: TapClosure? {
+        get {
+            guard let closureWrapper = objc_getAssociatedObject(self, &AssociatedKeys.targetClosure) as? TapClosureWrapper else { return nil }
+            return closureWrapper.closure
+        }
+        set(newValue) {
+            guard let newValue = newValue else { return }
+            objc_setAssociatedObject(self, &AssociatedKeys.targetClosure, TapClosureWrapper(newValue), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    @discardableResult
+    func tap(_ closure: @escaping TapClosure) -> Self {
+        isUserInteractionEnabled = true
+        targetClosure = closure
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(UIView.tapClosureAction))
+        addGestureRecognizer(tap)
+        return self
+    }
+    
+    @objc func tapClosureAction() {
+        guard let targetClosure = targetClosure else { return }
+        targetClosure()
+    }
 }

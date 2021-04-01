@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 public extension UIImageView {
     @discardableResult
@@ -17,6 +18,12 @@ public extension UIImageView {
     @discardableResult
     func image(_ named: String) -> Self {
         self.image(UIImage(named: named))
+        return self
+    }
+    
+    @discardableResult
+    func image(_ url: URL?, completed: SDExternalCompletionBlock? = nil) -> Self {
+        sd_setImage(with: url, completed: completed)
         return self
     }
 }

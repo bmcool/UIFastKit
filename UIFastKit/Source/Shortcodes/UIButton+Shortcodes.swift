@@ -164,6 +164,12 @@ public extension UIButton {
     }
     
     @discardableResult
+    func titleEdgeInsets(_ insets: UIEdgeInsets) -> Self {
+        self.titleEdgeInsets = insets
+        return self
+    }
+    
+    @discardableResult
     func color(_ color: UIColor?, for controlState: UIControl.State = []) -> Self {
         self.setTitleColor(color, for: controlState)
         return self
