@@ -9,7 +9,7 @@ import UIKit
 
 public extension UIButton {
     @discardableResult
-    func textColor(_ variable: Variable<UIColor?>, for controlState: UIControl.State = []) -> Self {
+    func color(_ variable: Variable<UIColor?>, for controlState: UIControl.State = []) -> Self {
         variable.bind {[weak self] (color) in
             self?.color(color, for: controlState)
         }

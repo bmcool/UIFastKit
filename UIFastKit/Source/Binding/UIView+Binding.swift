@@ -39,6 +39,14 @@ public extension UIView {
         }
         return self
     }
+    
+    @discardableResult
+    func borderColor(_ variable: Variable<UIColor?>) -> Self {
+        variable.bind {[weak self] (borderColor) in
+            self?.borderColor(borderColor)
+        }
+        return self
+    }
 
     @discardableResult
     func isUserInteractionEnabled(_ variable: Variable<Bool>) -> Self {
