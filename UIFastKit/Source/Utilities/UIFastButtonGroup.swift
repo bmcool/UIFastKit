@@ -7,15 +7,23 @@
 
 import UIKit
 
-public protocol UIFastButtonGroup {
-    var buttons: [UIButton] { get set }
-        
-    func append(_ button: UIButton)
+public class UIFastButtonGroup {
+    public var buttons: [UIButton] = []
+
+    public var isEnabled = true {
+        didSet {
+            buttons.forEach { $0.isEnabled = isEnabled }
+        }
+    }
+
+    public init() { }
+
+    func append(_ button: UIButton) {
+        fatalError("UIFastButtonGroup append(_:) has not been implemented")
+    }
 }
 
 public class UIFastButtonSingleOptionalChoice: UIFastButtonGroup {
-    public var buttons: [UIButton] = []
-    
     private var _onSelectedIndexChanged: ((Int?, [UIButton], UIFastButtonSingleOptionalChoice) -> Void)?
     public func onSelectedIndexChanged(_ closure: ((Int?, [UIButton], UIFastButtonSingleOptionalChoice) -> Void)?) {
         _onSelectedIndexChanged = closure
@@ -41,8 +49,15 @@ public class UIFastButtonSingleOptionalChoice: UIFastButtonGroup {
         }
     }
     
-    public init() { }
-    
+    public var selectedButton: UIButton? {
+        get {
+            if let index = selectedIndex {
+                return buttons[index]
+            }
+            return nil
+        }
+    }
+        
     private func _toggle(_ button: UIButton, shouldCallback: Bool = true) {
         if let selectedButton = getSelectedButton(), button == selectedButton {
             button.isSelected = false
@@ -60,7 +75,7 @@ public class UIFastButtonSingleOptionalChoice: UIFastButtonGroup {
         _toggle(button)
     }
     
-    public func append(_ button: UIButton) {
+    public override func append(_ button: UIButton) {
         buttons.append(button)
         button.addTarget(self, action: #selector(toggle(_:)), for: .touchUpInside)
     }
@@ -71,12 +86,11 @@ public class UIFastButtonSingleOptionalChoice: UIFastButtonGroup {
 }
 
 public class UIFastButtonSingleChoice: UIFastButtonGroup {
-    public var buttons: [UIButton] = []
-    
     private var _onSelectedIndexChanged: ((Int, [UIButton], UIFastButtonSingleChoice) -> Void)?
     public func onSelectedIndexChanged(_ closure: ((Int, [UIButton], UIFastButtonSingleChoice) -> Void)?) {
         _onSelectedIndexChanged = closure
     }
+    
     public var selectedIndex: Int {
         get {
             for (index, button) in buttons.enumerated() {
@@ -93,8 +107,12 @@ public class UIFastButtonSingleChoice: UIFastButtonGroup {
         }
     }
     
-    public init() { }
-    
+    public var selectedButton: UIButton {
+        get {
+            return buttons[selectedIndex]
+        }
+    }
+        
     private func _toggle(_ button: UIButton, shouldCallback: Bool = true) {
         buttons.forEach { $0.isSelected = false }
         button.isSelected = true
@@ -108,7 +126,7 @@ public class UIFastButtonSingleChoice: UIFastButtonGroup {
         _toggle(button)
     }
     
-    public func append(_ button: UIButton) {
+    public override func append(_ button: UIButton) {
         buttons.append(button)
         if buttons.count == 1 {
             button.isSelected = true
@@ -122,8 +140,6 @@ public class UIFastButtonSingleChoice: UIFastButtonGroup {
 }
 
 public class UIFastButtonMultipleChoice: UIFastButtonGroup {
-    public var buttons: [UIButton] = []
-    
     private var _onSelectedIndexesChanged: (([Int], [UIButton], UIFastButtonMultipleChoice) -> Void)?
     public func onSelectedIndexesChanged(_ closure: (([Int], [UIButton], UIFastButtonMultipleChoice) -> Void)?) {
         _onSelectedIndexesChanged = closure
@@ -147,8 +163,10 @@ public class UIFastButtonMultipleChoice: UIFastButtonGroup {
         }
     }
     
-    public init() {
-        
+    public var selectedButtons: [UIButton] {
+        get {
+            return selectedIndexes.map { buttons[$0] }
+        }
     }
     
     private func _toggle(_ button: UIButton, shouldCallback: Bool = true) {
@@ -163,7 +181,7 @@ public class UIFastButtonMultipleChoice: UIFastButtonGroup {
         _toggle(button)
     }
     
-    public func append(_ button: UIButton) {
+    public override func append(_ button: UIButton) {
         buttons.append(button)
         button.addTarget(self, action: #selector(toggle(_:)), for: .touchUpInside)
     }
