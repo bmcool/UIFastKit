@@ -85,6 +85,11 @@ public class UIFastKitDSL {
     // MARK: Direction, wrap, flow
     //
     
+    public func direction(_ direction: Flex.Direction) -> UIFastKitDSL {
+        flex.direction(direction)
+        return self
+    }
+    
     public var row: UIFastKitDSL {
         flex.direction(.row)
         return self
