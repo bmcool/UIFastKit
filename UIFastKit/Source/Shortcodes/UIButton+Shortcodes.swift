@@ -186,4 +186,40 @@ public extension UIButton {
         self.setTitleColor(UIColor.hex(color), for: controlState)
         return self
     }
+    
+    @discardableResult
+    func backgroundColor(_ color: UIColor?, for controlState: UIControl.State = []) -> Self {
+        self.setBackgroundColor(color, for: controlState)
+        return self
+    }
+    
+    @discardableResult
+    func backgroundColor(_ color: String, for controlState: UIControl.State = []) -> Self {
+        self.setBackgroundColor(UIColor.string(color), for: controlState)
+        return self
+    }
+    
+    @discardableResult
+    func backgroundColor(_ color: Int, for controlState: UIControl.State = []) -> Self {
+        self.setBackgroundColor(UIColor.hex(color), for: controlState)
+        return self
+    }
+    
+    private func setBackgroundColor(_ color: UIColor?, for controlState: UIControl.State) {
+        let c = color ?? .clear
+        let minimumSize: CGSize = CGSize(width: 1.0, height: 1.0)
+
+        UIGraphicsBeginImageContext(minimumSize)
+
+        if let context = UIGraphicsGetCurrentContext() {
+          context.setFillColor(c.cgColor)
+          context.fill(CGRect(origin: .zero, size: minimumSize))
+        }
+
+        let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        self.clipsToBounds = true
+        self.setBackgroundImage(colorImage, for: controlState)
+    }
 }

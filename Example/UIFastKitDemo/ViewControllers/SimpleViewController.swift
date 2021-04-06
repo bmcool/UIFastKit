@@ -20,6 +20,14 @@ class SimpleViewController: UIFastViewController {
     let price = Variable<String?>(nil)
     let date = Variable<String?>(nil)
     let channel = Channel<String?>()
+    
+    let groupResult1 = Variable<String?>(nil)
+    let groupResult2 = Variable<String?>(nil)
+    let groupResult3 = Variable<String?>(nil)
+    
+    let group1 = UIFastButtonSingleChoice()
+    let group2 = UIFastButtonSingleOptionalChoice()
+    let group3 = UIFastButtonMultipleChoice()
 
     deinit {
         print("-- deinit -- ViewController")
@@ -34,6 +42,13 @@ class SimpleViewController: UIFastViewController {
         let valueLabel = UIFastDefine<UILabel>([subtitleLabel, infoTitleLabel])
 
         let channelLabel = DebugLabel(titleLabel)
+        
+        let groupButton = UIFastDefine<UIButton>() {
+            $0.backgroundColor(.gray, for: [.normal])
+                .backgroundColor(.blue, for: [.selected])
+                .cornerRadius(15)
+                .box.grow(1).all(5)
+        }
         
         rootFlexContainer.backgroundColor(.lightGray).box.column
             .add(
@@ -54,12 +69,43 @@ class SimpleViewController: UIFastViewController {
                     .add(UIButton().click({[unowned self] in
                         self.date.value = Date().description
                         self.view.setNeedsLayout()
-                    }).click({ (sender) in
                     }).text("aaaa").backgroundColor(.orange).box.grow(1))
                     .add(UILabel().text("bbbb").backgroundColor("255, 0, 0, 0.1").box.grow(2))
             )
+            .add(
+                UIView().box.height(50).row
+                    .add(UIButton(groupButton).group(group1).text("1111"))
+                    .add(UIButton(groupButton).group(group1).text("2222"))
+                    .add(UIButton(groupButton).group(group1).text("3333"))
+            )
+            .add(
+                UIView().box.height(50).row
+                    .add(UIButton(groupButton).group(group2).text("1111"))
+                    .add(UIButton(groupButton).group(group2).text("2222"))
+                    .add(UIButton(groupButton).group(group2).text("3333"))
+            )
+            .add(
+                UIView().box.height(50).row
+                    .add(UIButton(groupButton).group(group3).text("1111"))
+                    .add(UIButton(groupButton).group(group3).text("2222"))
+                    .add(UIButton(groupButton).group(group3).text("3333"))
+            )
         
-        let unlisten = channel.listen {[weak self] (v) in
+        group1.onSelectedIndexChanged { (index, buttons, group) in
+            print(index, buttons.count)
+        }
+        group2.onSelectedIndexChanged { (index, buttons, group) in
+            print(index, buttons.count)
+        }
+        group3.onSelectedIndexesChanged { (indexes, buttons, group) in
+            print(indexes, buttons.count)
+        }
+        group1.selectedIndex = 1
+        group2.selectedIndex = 2
+        group3.selectedIndexes = [1, 2]
+
+        
+        let unlisten = channel.bind {[weak self] (v) in
             channelLabel.text(v).box.markDirty()
             self?.view.setNeedsLayout()
         }
