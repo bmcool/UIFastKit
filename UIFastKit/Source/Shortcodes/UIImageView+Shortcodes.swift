@@ -27,3 +27,15 @@ public extension UIImageView {
         return self
     }
 }
+
+public extension UIImageView {
+    convenience init(_ named: String) {
+        self.init()
+        self.image(named)
+    }
+    
+    convenience init(_ url: URL?, completed: SDExternalCompletionBlock? = nil) {
+        self.init()
+        self.image(url, completed: completed)
+    }
+}

@@ -223,3 +223,10 @@ public extension UIButton {
         self.setBackgroundImage(colorImage, for: controlState)
     }
 }
+
+public extension UIButton {
+    convenience init(_ text: String) {
+        self.init()
+        self.text(text)
+    }
+}

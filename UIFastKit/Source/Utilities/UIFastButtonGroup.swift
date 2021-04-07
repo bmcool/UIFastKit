@@ -188,6 +188,7 @@ public class UIFastButtonMultipleChoice: UIFastButtonGroup {
 }
 
 public extension UIButton {
+    @discardableResult
     func group(_ group: UIFastButtonGroup) -> Self {
         group.append(self)
         
