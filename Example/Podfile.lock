@@ -4,7 +4,7 @@ PODS:
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
-  - UIFastKit (1.1.15):
+  - UIFastKit (1.1.19):
     - FlexLayout (~> 1.3.20)
     - PinLayout (~> 1.9.2)
     - SDWebImage (~> 5.8)
@@ -29,7 +29,7 @@ SPEC CHECKSUMS:
   FlexLayout: 025dd153bd5618dcc9f93ef914106d7dc2a86fdc
   PinLayout: 0d96022e46e8b80468d819f182a393b97ca038da
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
-  UIFastKit: 4cab21ba80579d89e9d65d71a2e4beaef537bdb0
+  UIFastKit: e1972ef0f4e4087bc6a074b4841189be41c7bb55
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
 PODFILE CHECKSUM: 8b5970647a37f6fafe9c150ddafabf343dbc4421

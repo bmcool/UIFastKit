@@ -173,12 +173,11 @@
 		791E676D254BAEBC00FE4D64 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				79BFCFF6262217A80057AB6E /* Core */,
 				79BFCF09261C98340057AB6E /* Utilities */,
 				79DF663A25553CA000842DE5 /* 3rdParty */,
 				79DF66062555218800842DE5 /* Extensions */,
 				7919C1252553EE19003F7465 /* UI */,
-				791E6754254BAE2800FE4D64 /* UIFastKit.swift */,
-				791E675D254BAE2800FE4D64 /* UIFastDefine.swift */,
 				791E6755254BAE2800FE4D64 /* Binding */,
 				791E674E254BAE2700FE4D64 /* Shortcodes */,
 			);
@@ -191,6 +190,15 @@
 				79BFCF0A261C985B0057AB6E /* UIFastButtonGroup.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		79BFCFF6262217A80057AB6E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				791E6754254BAE2800FE4D64 /* UIFastKit.swift */,
+				791E675D254BAE2800FE4D64 /* UIFastDefine.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		79DF66062555218800842DE5 /* Extensions */ = {
